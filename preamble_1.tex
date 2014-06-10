@@ -1,0 +1,171 @@
+\documentclass[10pt,a4paper,spanish]{report}
+
+\author{Javier Carrillo Milla}
+
+%% --- The Standard Packages ---
+\usepackage{latexsym}
+\usepackage{makeidx}
+
+%% FUENTES
+%\usepackage[latin1]{inputenc} %% Este paquete se selecciona para WINDOWS
+\usepackage[utf8]{inputenc} %% Este paquete se selecciona para LINUX
+\usepackage[spanish]{babel} % Tildes y la ñ española
+%\sloppy % Mejor división de palabras
+
+%% COLORES
+\usepackage{color}
+% \color{``texto o formula''} -> Cambia el color del texto a partir de este punto
+% \texcolor{``color''}{texto o f�rmula}
+% \pagecolor{``black``} -> Cambia el color de la p�gina a partir de este momento
+% \definecolor{rosa}{rgb}{1,0.5,0.5} -> Definir un color personalizado en rgb
+\usepackage{xcolor}
+
+%% FUENTES MATEMÁTICAS
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{upgreek}
+
+\usepackage{mathpazo}
+
+ 
+%% --- Tablas largas ---
+% Con este paquete se pueden poner tablas que sean muy grandes, utilizando /begin{longtable} en
+% lugar de /begin{table} ---
+\usepackage{longtable}
+\usepackage{multicol}
+%\usepackage{multirow}
+\usepackage{caption} % Extiende las posibilidades del caption
+
+%% --- Landscape ---
+\usepackage{lscape}
+
+% Gráficos
+% Se ponen los paquetes necesarios para introducir im�genes.
+\usepackage{psboxit}
+\usepackage{floatflt,graphicx}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{pst-all}
+\usepackage{psfrag}
+\usepackage{parallel} % Escribe en paralelo
+
+\usepackage[left=0.6in,right=0.6in,top=0.8in,bottom=0.5in,includeheadfoot]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Filigranas varias
+
+\newcommand{\rb}[2]{\rotatebox{#1}{#2}}
+\newcommand{\there}[1]{\frac{#1}{\downarrow}} 
+\newcommand{\rarrow}[2]{\rotatebox{#1}{$\xleftarrow{\text{#2}}$}} 
+% Para rotar el texto. Comando ''\rb{angulo}{texto}``
+
+\usepackage{minitoc} % Índice de capítulos 
+\setcounter{minitocdepth}{2}
+\setlength{\mtcindent}{0pt}
+\renewcommand{\mtcfont}{\small\bf}
+\renewcommand{\mtcSfont}{\small\bf}
+
+\renewcommand{\mtctitle}{}
+
+\usepackage{paralist} % para usar compactitem: itemize con menos espacio entre items
+
+%%%%%%%%%%%%%%%%%%%%%%%% CABECERAS Y PIES DE PÁGINA
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%\usepackage[Lenny]{fncychap} % Estilo de capítulos
+
+% Para el Bjornstrup
+%
+%\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+%\ChTitleVar{\raggedleft\Large\sffamily\bfseries}
+
+% Para el Lenny
+%\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+%\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+%\ChTitleVar{\Huge\bfseries\rm} 
+%\ChRuleWidth{1pt}
+
+\fancyhf{}
+\usepackage{calc}  % No se que es aún.
+
+% Modificación de algunos comandos.
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}} % Formato para el capítulo: N. Nombre
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}} % Formato para la sección: N.M. Nombre
+\renewcommand{\headrulewidth}{0.6pt} % Ancho de la línea horizontal bajo el encabezado
+%\renewcommand{\footrulewidth}{0.6pt} % Ancho de la línea horizontal sobre el pie (que en este ejemplo está vacío)
+%\setlength{\headheight}{1.5\headheight} % Aumenta la altura del encabezado en una vez y media
+\setlength{\headheight}{16.0pt}
+
+% Cabeceras
+%\fancyhead[LO]{\leftmark} % En las páginas impares, parte izquierda del encabezado, aparecerá el nombre de capítulo
+\fancyhead[R]{\rightmark} % En las páginas pares, parte derecha del encabezado, aparecerá el nombre de sección
+\fancyhead[RO,LE]{Página \thepage} % Números de página en las esquinas de los encabezados
+\fancyhead[RE,LO]{Javier Carrillo Milla} % Números de página en las esquinas de los encabezados
+
+% Pie de página
+%\fancyfoot[L]{}
+%\fancyfoot[LO]{\today}
+%\fancyfoot[C]{\thepage} %AQUI SE PONE POR DEFECTO LA PAGINA, EN EL PIE DE
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FOOTNOTES
+
+\usepackage{footnote}
+
+% Tamaño del footnote
+\renewcommand{\footnoterule}{\vspace*{-3pt}
+  \noindent\rule{15cm}{1pt}\vspace*{2.6pt}}
+
+% Estilos para el footnote
+\renewcommand{\thefootnote}{(\arabic{footnote})} 	 % 	Numeración arábiga: 1, 2, 3...
+%\renewcommand{\thefootnote}{\roman{footnote}} 	 %	Numeración romana en minúsculas: i, ii, iii...
+%\renewcommand{\thefootnote}{\Roman{footnote}} 	 %	Numeración romana en ayúsculas: I, II, III...
+%\renewcommand{\thefootnote}{\alph{footnote}} 	 %      Numeración alfabética en minúsculas a, b, c...
+%\renewcommand{\thefootnote}{\Alph{footnote}} 	 %	Numeración alfabética en mayúsculas: A, B, C...
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}} %	No números, sino símbolos diversos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliografía
+\usepackage[square,authoryear,sort&compress]{natbib}
+
+%% Custom bibliography style defined using the Makebst utility
+%% that comes with the natbib package.
+
+\bibliographystyle{bib/bibleo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Comandos personalizados
+% Estos paquetes se usan para poner nombre a diversos objetos.
+\addto\captionsspanish{%
+%  \def\prefacename{Prefacio}%
+%  \def\refname{Referencias}%
+  \def\abstractname{Resumen}
+  \def\bibname{Bibliograf\'{\i}a}%
+  \def\chaptername{Apartado}%
+%  \def\appendixname{Ap\'endice}%
+%  \def\listfigurename{\'Indice de figuras}%
+  %\def\listtablename{\'Indice de cuadros}%
+  \def\listtablename{\'Indice de Tablas}%
+%  \def\indexname{\'Indice alfab\'etico}%
+%  \def\figurename{Figura}%
+  %\def\tablename{Cuadro}%
+  \def\tablename{Tabla}%
+%  \def\partname{Parte}%
+%  \def\enclname{Adjunto}%
+%  \def\ccname{Copia a}%
+%  \def\headtoname{A}%
+%  \def\pagename{P\'agina}%
+%  \def\seename{v\'ease}%}
+%  \def\alsoname{v\'ease tambi\'en}%
+   \def\theoremname{Teorema}
+   \def\definitionname{Definici\'on}
+   \def\lemmaname{Lema}
+   \def\corolaryname{Corolario}
+%  \def\proofname{Demostraci\'on}%
+%  \def\glossaryname{Glosario}
+}
+
+% Boxedminipage
+\usepackage{boxedminipage}
+\setlength{\fboxrule}{1.4pt}
+\setlength{\fboxsep}{1.5pt}

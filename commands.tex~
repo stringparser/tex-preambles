@@ -1,0 +1,319 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMANDOS PROPIOS
+
+% TIPOGRAFÍAS
+
+\newcommand{\tbbu}[1]{\noindent $\bullet$ \textbf{#1}:} % BOLDFACE & UNDERLINED
+\newcommand{\te}[1]{\emph{#1}} % EMPHASIZE
+\newcommand{\tu}[1]{\underline{#1}} % UNDERLINE
+\newcommand{\tb}[1]{\textbf{#1}} % BOLDFACE
+\newcommand{\hlinebreak}{\noindent |||||||||||||||||||||||||||||||||||||||||||||||||||| \\ }
+\newcommand{\boxtext}[1]{
+\hlinebreak
+\noindent #1 \\
+\hlinebreak
+} 
+\newcommand{\boxtextit}[1]{
+\hlinebreak
+\noindent \textit{#1} \\
+\hlinebreak
+} 
+\newcommand{\tit}[1]{\textit{#1}} % ITALIC
+
+% Boxed Title
+\newcommand{\boxedtitle}{
+\begin{boxedminipage}{17.1cm}
+\begin{boxedminipage}{16.75cm} 
+\vspace{6cm}
+\maketitle  
+\vspace{6cm}
+\end{boxedminipage}
+\end{boxedminipage}
+}
+
+% Centered Boxed Minipage, custom width
+
+\newcommand{\cbox}[1]{
+\begin{center}
+\begin{boxedminipage}{15cm} #1 \end{boxedminipage}
+\end{center}
+}
+
+% Teoremas, definiciones y tal
+
+\newcommand{\definicion}[1]{
+\cbox{ \textbf{Definición}: #1 }
+}
+
+\newcommand{\teorema}[1]{
+\cbox{ \textbf{Teorema}: #1 }
+}
+
+\newcommand{\proposicion}[1]{
+\cbox{ \textbf{Proposicion}: #1 }
+}
+
+\newcommand{\Lema}[1]{
+\cbox{ \textbf{Lema}: #1 }
+}
+
+% PARA EL MATH MODE
+
+% Tipografías
+
+\newcommand{\cali}[1]{\mathcal{#1}}
+
+\newcommand{\rblr}[1]{\left( #1 \right)}    % Round brackets, open brackets, or parentheses:  ( )
+\newcommand{\cblr}[1]{\left\{ #1 \right\}}  % Curly brackets or braces:  { }
+\newcommand{\sblr}[1]{\left[ #1 \right]}    % Square brackets, closed brackets, or box brackets:  [ ]
+\newcommand{\abs}[1]{\left|#1 \right|}
+
+\newcommand{\lerr}[2]{\left|\frac{\partial #1}{\partial #2}\right| \delta #2} % linear error
+\newcommand{\qerr}[2]{\rblr{\frac{\partial #1}{\partial #2}}^2(\delta #2)^2}   % quadratic error
+
+% Comando para usar la notación de Dirac.
+
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\mean}[1]{\langle #1 \rangle}
+
+% Ecuaciones
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\eq}[1]{\begin{equation} #1 \end{equation}} % numbered equation
+\newcommand{\eql}[2]{\begin{equation} #2 \label{eq:#1} \end{equation}} % numbered labeled equation
+\newcommand{\eqn}[1]{\begin{equation*} #1 \end{equation*}} % no numbered equation
+
+% Ecuaciones en array
+\newcommand{\eqsnarray}[1]{\begin{eqnarray} #1 \end{eqnarray}} % equations with number in array 
+\newcommand{\eqsnnarray}[2]{\begin{eqnarray*} #1 \end{eqnarray*}} % equation with no numbred in array
+
+% TABLAS
+\newcommand{\erow}{ \\ \hline}
+
+% Fast Table ''ftable``
+\newcommand{\ftable}[3]{
+\begin{table}[h!]
+ \centering
+ \begin{tabular}{#1} \hline
+ #3 \\ \hline
+\end{tabular}
+\caption{#2.}
+\end{table}
+}
+
+% Fast array
+\newcommand{\farray}[3]{
+\begin{table}[h!]
+ \centering
+ \begin{math}
+ \begin{array}{#1} \hline
+ #3 \\ \hline
+\end{array}
+\end{math}
+\caption{#2.}
+\end{table}
+}
+
+% Two Fast array with common caption
+\newcommand{\twofarray}[6]{
+\begin{table}[h!] 
+\centering
+
+\begin{tabular}{ccccc} 
+(a)  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #3 \\ \hline
+\end{array}
+\end{math} 
+  & \hspace{0.1cm} & (b) &
+\begin{math}
+\begin{array}{#4} \hline
+ #6 \\ \hline
+\end{array}
+\end{math} \\
+\end{tabular}
+\caption{(a) #2. (b) #5.}
+\end{table}
+}
+
+% Two Fast ARRAY With Common Caption and Label
+
+\newcommand{\twofarrayl}[8]{
+\begin{table}[h!] 
+\centering
+
+\begin{tabular}{ccccc} 
+(a)  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #4 \\ \hline
+\end{array}
+\label{#3}
+\end{math} 
+  & \hspace{0.1cm} & (b) &
+\begin{math}
+\begin{array}{#5} \hline
+ #8 \\ \hline
+\end{array}
+\label{#7}
+\end{math} \\
+\end{tabular}
+\caption{(a) #2. (b) #6.}
+\end{table}
+}
+
+% Two Fast array with no common caption
+\newcommand{\twofarrayncc}[6]{
+\begin{table}[h!] 
+\centering
+\begin{tabular}{ccccc} 
+#2  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #3 \\ \hline
+\end{array}
+\end{math} & \hspace{0.1cm} & 
+#5 &
+\begin{math}
+\begin{array}{#4} \hline
+ #6 \\ \hline
+\end{array}
+\end{math} \\
+\end{tabular}
+\end{table}
+}
+
+% Two Fast ARRAY with No Common Caption and Label
+
+\newcommand{\twofarraynccl}[8]{
+\begin{table}[h!] 
+\centering
+
+\begin{tabular}{ccccc} 
+(a)  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #4 \\ \hline
+\end{array}
+\label{#3}
+\end{math} 
+  & \hspace{0.1cm} & (b) &
+\begin{math}
+\begin{array}{#5} \hline
+ #8 \\ \hline
+\end{array}
+\label{#7}
+\end{math} \\
+\end{tabular}
+\caption{(a) #2. (b) #6.}
+\end{table}
+}
+
+\newcommand{\threefarray}[9]{
+\begin{table}[h!] 
+\centering
+
+\begin{tabular}{cccccccc} 
+(a)  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #3 \\ \hline
+\end{array}
+\end{math} 
+& \hspace{0.1cm} 
+& (b) &
+\begin{math}
+\begin{array}{#4} \hline
+ #6 \\ \hline
+\end{array}
+\end{math}
+& \hspace{0.1cm} 
+& (c) &
+\begin{math}
+\begin{array}{#7} \hline
+ #9 \\ \hline
+\end{array}
+\end{math} \\ 
+\end{tabular}
+\caption{(a) #2. (b) #5. (c) #8}
+\end{table}
+}
+
+% Fast ARRAY with Side Caption
+\newcommand{\farraysc}[3]{
+\begin{table}[h!] 
+\centering
+\begin{tabular}{cc} 
+#2  & 
+\begin{math}
+\begin{array}{#1}  
+\hline #3 \\ \hline
+\end{array}
+\end{math}  
+\end{tabular} 
+\end{table}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMÁGENES
+
+% A simple image
+\newcommand{\img}[2]{ \includegraphics[#1]{#2} }
+
+% Centered Numbered Image with caption
+\newcommand{\cnimg}[3]{
+\begin{figure}[h!]
+\centering
+\includegraphics[#1]{#2}
+\caption{#3.}
+\end{figure}
+}
+
+% Centered Numbered Image with caption and Label
+\newcommand{\cnimgl}[4]{
+\begin{figure}[h!]
+\centering
+\includegraphics[#1]{#2}
+\caption{#3.}
+\label{#4}
+\end{figure}
+}
+
+% Two cententered numbered images
+\newcommand{\twocnimg}[6]{
+\begin{figure}[h!]
+\centering
+\subfigure[#3]{\includegraphics[#1]{#2}}
+\subfigure[#6]{ \includegraphics[#4]{#5}}
+\end{figure}
+}
+
+% Centered Numbered Image without caption
+\newcommand{\cimg}[2]{
+\begin{figure}[h!]
+\centering
+\includegraphics[#1]{#2}
+\end{figure}
+}
+
+% ALGUNOS AMBIENTES SIMPLIFICADOS
+
+\newcommand{\fitem}[1]{ 
+\begin{itemize} 
+#1
+\end{itemize}
+}
+
+\newcommand{\citem}[1]{ 
+\begin{compactitem} 
+\item[] #1 \item[]
+\end{compactitem}
+}
+
+\newcommand{\fenumerate}[1]{
+\begin{enumerate}
+ #1
+\end{enumerate}
+}
+

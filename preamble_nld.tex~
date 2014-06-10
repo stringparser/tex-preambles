@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Notes:
+%% ----------------------------
+%% Caution! the order matters to compile! Right know one learn that
+%% -> First graphics packages. 
+%% -> Afterwards \documentclass... 
+%% maintain the order if don't want a lot of headaches! :)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -----------------------------------------------
+% The Standard Packages
+% -----------------------------------------------
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}  % Language
+%\usepackage{latexsym}
+% -----------------------------------------------
+% Related to Graphics
+% -----------------------------------------------
+%\usepackage{graphicx}
+%\usepackage{wrapfig} % To place figures around the text
+\usepackage[pdftex]{graphicx}
+\usepackage{subfigure}
+%\usepackage[sub,ovp]{psfragx}
+%\usepackage{overpic,color}
+
+% Captions
+\usepackage{caption}
+
+% -----------------------------------------------
+% Related to -> Text
+% -----------------------------------------------
+%% Whole Text Fonts
+%\usepackage{kpfonts}
+%\usepackage{wasysym}  % Strange symbols
+\usepackage{mathpazo}  % Font used in the whole text
+\usepackage{ulem}      % Different types of underline as wave underline
+\usepackage{cancel}    % To strike down/up things on text/math
+%\cancel{text to cancel} draws a diagonal line (slash) through its argument
+%\bcancel{text to cancel} uses the negative slope (a backslash)
+%\xcancel{text to cancel} draws an X (actually \cancel plus \bcancel)
+%\cancelto{〈value〉}{〈expression〉} draws a diagonal arrow through the 〈expression〉, pointing to the 〈value〉
+% (math-mode only)
+\usepackage{eurosym}  % euro symbol!
+% Mathematical fonts and environments
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{dsfont}
+% Especific fonts
+\def\dbar{{\mathchar'26\mkern-10mu d}}  % Inexact differential
+
+
+% -----------------------------------------------
+%% Related to -> Page Formating
+% -----------------------------------------------
+% Page margins
+%\usepackage[left=0.1\textwidth,right=0.1\textwidth,top=0.05\textwidth,bottom=0.13\textwidth,includehead]{geometry} 
+\setlength{\parindent}{0pt}  % Paragraph indentation for the hole document
+%\sloppy                      % Better division between words
+
+% Headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+%\usepackage[Conny]{fncychap} % Predefined chapter style
+%\fancyhf{}
+%\usepackage{calc}  % Don't remember what is this
+
+% HEADERS
+%\fancyhead[C]{\sectionmark} % En las páginas impares, parte izquierda del encabezado, 
+%\fancyhead[RO,LE]{- \thepage -} % Números de página en las esquinas de los encabezados
+%\fancyhead[RO,LE]{Javier Carrillo Milla} % Números de página en las esquinas de los encabezados
+
+% FOOTERS
+\fancyfoot{}
+%\fancyfoot[L]{}
+%\fancyfoot[LO]{\today}
+\fancyfoot[RO,LE]{$\boxed{\text{\thepage}}$}
+%\fancyfoot[LE]{$\boxed{\text{\thepage}}$}
+
+% FOOTNOTES
+\usepackage{footnote}
+\renewcommand{\footnoterule}{\vspace*{-3pt} % Footnote format
+  \noindent\rule{15cm}{1pt}\vspace*{2.6pt}}
+\renewcommand{\thefootnote}{[\arabic{footnote}]} % Styles for the footnote
+%\renewcommand{\thefootnote}{\roman{footnote}}
+%\renewcommand{\thefootnote}{\Roman{footnote}} 	 %	Numeración romana en ayúsculas: I, II,
+%\renewcommand{\thefootnote}{\alph{footnote}} 	 %      Numeración alfabética en minúsculas a, b,
+%\renewcommand{\thefootnote}{\Alph{footnote}} 	 %	Numeración alfabética en mayúsculas: A, B,
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}} %	No números, sino símbolos diversos
+
+% Columns and environments
+\usepackage{longtable}       % To include long tables (tabulars)
+%\renewcommand{\tabcolsep}{1cm}
+\renewcommand{\arraystretch}{1}
+
+\usepackage{parcolumns}      % enables two-column style in the middle of a document
+\usepackage{multicol}        % Multiple columns on a tabular
+\usepackage{multirow}
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{2pt}
+% Float figures in multicols
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\usepackage{paralist}        % Contains compactitem: like itemize but less space between items.
+%\usepackage{parallel}
+% Minipage & Boxedminipage
+\usepackage{boxedminipage}
+\setlength{\fboxrule}{1.2pt}
+\setlength{\fboxsep}{3.5pt}
+% List
+
+% Coloring, Sizing, Orientation, Deforming the text
+% Fontcolors
+\usepackage[dvinames]{xcolor}
+%-> Usage
+% --
+% \color{text or eq} -> Changes text from this point on.
+% \texcolor{color}{text or eq} - > Changes text under the curly brackets.
+% \pagecolor{black} -> Changes the background color of your page.
+% \definecolor{pink}{rgb}{1,0.5,0.5} -> Custom color from rgb.
+%\usepackage{xcolor}
+\usepackage{rotating}        % To rotate text
+\usepackage{lscape}          % landscape page format
+
+\usepackage{listings}        % Code Highlighting
+\lstset{                     % Options for listings
+language=R, 
+basicstyle=\scriptsize\ttfamily\color{blue}, 
+commentstyle=\ttfamily\color{gray}, 
+numbers=left, 
+numberstyle=\ttfamily\color{red}\scriptsize, 
+stepnumber=1, 
+numbersep=5pt, 
+backgroundcolor=\color{white}, 
+showspaces=false, 
+showstringspaces=false, 
+showtabs=false, 
+xleftmargin=0.1\textwidth,
+xrightmargin=0.1\textwidth,
+frame=single,    
+   %framexleftmargin=17pt,
+   %framexrightmargin=5pt,
+   %framexbottommargin=4pt,
+tabsize=4, 
+captionpos=b, 
+breaklines=true, 
+breakatwhitespace=false, 
+title=\lstname, 
+escapeinside={}, 
+keywordstyle={}, 
+morekeywords={} 
+} 
+
+% -----------------------------------------------
+% Indexing & Bibliography
+% -----------------------------------------------
+\usepackage{makeidx}
+%\usepackage[square,authoryear,sort&compress]{natbib}
+%% Custom bibliography style defined using the Makebst utility
+%% that comes with the natbib package.
+%\bibliographystyle{bib/bibleo}
+
+% -----------------------------------------------
+% Related to -> User Defined Environments
+% -----------------------------------------------
+%% Definition of the environments.
+% Format: \newtheorem{<your name>}{<Definition, Theorem or Lemma>}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem{lemma}{Lemma}[section]

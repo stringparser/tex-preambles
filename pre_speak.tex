@@ -1,0 +1,125 @@
+%\documentclass[9pt,blue,compress]{beamer}
+\mode<presentation>
+%% --- The Standard Packages ---
+% \usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{makeidx}
+
+%% FUENTES
+\usepackage[utf8]{inputenc} % Encoding LINUX
+%\usepackage[spanish]{babel} % Tildes y la ñ española
+%\usepackage{textcomp}
+\sloppy % Mejor división de palabras
+
+\usepackage{color}
+% \color{``texto o formula''} -> Cambia el color a partir de este punto
+% \texcolor{``color''}{texto o fórmula}
+% \pagecolor{``black``} -> Cambia el color de la página a partir de este momento
+% \definecolor{rosa}{rgb}{1,0.5,0.5} -> Definir un color personalizado en rgb
+
+%% FUENTES MATEMÁTICAS
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{dsfont}
+ 
+%\usepackage{mathpazo}
+%% --- Tablas largas ---
+% Con este paquete se pueden poner tablas que sean muy grandes, utilizando /begin{longtable} en
+% lugar de /begin{table} ---
+\usepackage{longtable}
+%% --- Landscape ---
+% \usepackage{lscape}
+
+%% --- Gricos ---
+% Se ponen los paquetes necesarios para introducir imágenes.
+\usepackage{psboxit}
+\usepackage{subfigure}
+% \usepackage{caption}
+\usepackage{ulem}
+\usepackage{cancel}
+% --- Unidades ---
+%\usepackage[squaren,Gray]{SIunits}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% Cabeceras bonitas. 
+
+\usepackage{calc}
+
+% IZQUIERDA
+%------------------------
+% /fancyhead[]{} 
+%	-L-> Izquierda
+%	-R-> Derecha
+%	-C-> Centrado
+%	-O-> En un número de página impar, va acompañado de una de las tres posiciones anteriores
+%(OL,OR,OC)
+%	-E-> En un número de página par, va acompañado de una de las tres posiciones anteriores
+%(EL,ER,EC)
+%\fancyhead[L]{Escuela de Verano}
+
+% CENTRO
+%\fancyhead[R]{Javier Carrillo Milla}
+% DERECHA
+%\fancyhead[R,L]{\thepage}%Se puede poner un encabezado igual tanto a derecha como a izquierda
+%Linie oben
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pi� de p�gina
+%\fancyfoot[L]{}
+%\fancyfoot[LO]{\today}
+ %AQUI SE PONE POR DEFECTO LA PAGINA, EN EL PIE DE
+%PAGINAA LA DERECHA
+
+%\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\thefootnote}{[\arabic{footnote}]} 
+
+\usepackage{paralist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliograf�a
+% \usepackage[square,authoryear,sort&compress]{natbib}
+
+%% Custom bibliography style defined using the Makebst utility
+%% that comes with the natbib package.
+
+% \bibliographystyle{bib/bibleo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Comandos personalizados
+% Estos paquetes se usan para poner nombre a diversos objetos.
+%\addto\captionsspanish{%
+%  \def\prefacename{Prefacio}%
+%  \def\refname{Referencias}%
+%  \def\abstractname{Abstract}
+%  \def\bibname{Bibliograf\'{\i}a}%
+%   \def\chaptername{Part}%
+%  \def\appendixname{Ap\'endice}%
+%  \def\listfigurename{\'Indice de figuras}%
+  %\def\listtablename{\'Indice de cuadros}%
+%  \def\listtablename{Table index}%
+%  \def\indexname{\'Indice alfab\'etico}%
+%  \def\figurename{Figura}%
+  %\def\tablename{Cuadro}%
+%  \def\tablename{Table}%
+%  \def\partname{Parte}%
+%  \def\enclname{Adjunto}%
+%  \def\ccname{Copia a}%
+%  \def\headtoname{A}%
+%  \def\pagename{P\'agina}%
+%  \def\seename{v\'ease}%}
+%  \def\alsoname{v\'ease tambi\'en}%
+%  \def\proofname{Demostraci\'on}%
+%  \def\glossaryname{Glosario}
+%}
+
+% Boxedminipage
+ \usepackage{boxedminipage}
+ \setlength{\fboxrule}{1pt}
+ \setlength{\fboxsep}{3pt}
+
+%\usetheme[hideothersubsections,width=1.7cm]{PaloAlto}
+\useinnertheme{circles}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+%\logo{\includegraphics[scale=0.3]{img/logo_lmu.pdf}}

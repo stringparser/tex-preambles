@@ -1,0 +1,67 @@
+\section{Errores de las medidas.}
+
+Sea una función arbitraria $z=f(x_i)$, de la que se desea obtener
+la variable $z$ indirectamente. Esta variable tendrá un error asociado que dependerá en general de la dependencia de esta variable con $f$. Por lo tanto, para el cálculo del error se procederá de distinta manera dependiendo de la situación:
+
+\begin{itemize}
+ \item \textbf{Propagación lineal de errores}\footnote{ La notación usada para los errores es $\delta$ en lugar de $\Delta$. Es ambiguo en la mayoría de los casos, puesto que $\Delta$ se usa más para incrementos que para errores, y como es sabido el error en la medida no es siempre el error absoluto (que si corresponde a un incremento) sino el error correspondiente al cálculo de la propagación de errores que se describe a continuación.}:  
+
+\begin{equation}
+  \delta z = \sum_{i=1}^{n} \left| \frac{\partial f(x_i)}{\partial x_i}\right|\delta x_i + 
+             \sum_{j=1}^{m} \left| \frac{\partial f(x_i)}{\partial a_j}\right|\delta a_j
+  \label{eq:l-err}
+\end{equation}
+
+\item \textbf{Derivada logarítmica}: en este caso se hace uso de $\ln(z) = \ln[f(x_i)]$ y acontinuación se diferencia
+
+$$
+\frac{dz}{z} = \sum_{i=1}^{n}\pder{f(x_i)}{x_i} \frac{1}{f(x_i)} dx_i + \sum_{j=1}^{m}\frac{\partial
+f(x_i)}{\partial a_j} \frac{1}{f(x_i)} da_j \Rightarrow dz =  
+z \left( 
+\sum_{i=1}^{n}\frac{\partial f(x_i)}{\partial x_i}\frac{1}{f(x_i)} dx_i + 
+\sum_{j=1}^{m}\frac{\partial f(x_i)}{\partial a_j} \frac{1}{f(x_i)} da_j
+\right)
+$$
+
+entonces, suponiendo que las variaciones de cada variable $x_i$ son pequeñas, tomamos incrementos
+
+$$
+\delta z = 
+ \left(  \sum_{i=1}^n \left| \frac{\partial f(x_i)}{\partial x_i} \frac{z}{f(x_i)} \right| \delta x_i  + 
+         \sum_{j=1}^{m} \left| \frac{\partial f(x_i)}{\partial a_j} \frac{z}{f(x_i)} \right| \delta a_j\right)
+ \label{eq:ln-err}
+$$
+
+\item \textbf{Propagación cuadrática de errores}:
+
+\begin{equation}
+\delta z = \sqrt{ \sum_{i=1}^n \pdderp{f(x_i)}{x_i} + \sum_{j=1}^m \pdderp{f(x_i)}{a_j} } 
+\label{eq:q-err}
+\end{equation}
+
+\item En todos los casos anteriores $x_i$ son las variables y $a_j$ las constantes ($\pi$, $G$, $\hbar$, etc.), $n$ el número de variables y $m$ de constantes,
+siendo $\delta x_i$, $\delta a_j$ sus respectivos errores.
+
+\item \textbf{Recta de regresión}:
+
+Para la recta de regresión $y=ax+b$, los errores mediante el método de mínimos cuadrados son
+
+\begin{equation}
+  \delta a = \frac{n\sum_{i=1}^n x_i y_i - \left( \sum_{i=1}^n x_i\right)\left( \sum_{i=1}^n y_i\right) }{n \sum_{i=1}^n x^2_i -\left( \sum_{i=1}^n
+  x_i\right)^2} = \frac{2b}{r}\sqrt{\frac{1-r^2}{n-2}} \quad ; \quad \delta b = \frac{\sum y_i - a\sum_{i=1}^n
+  x_i}{n}= \delta a \sqrt{\frac{\sum_{i=1}^n x^2_i}{n}}  
+  \label{eq:ab-err}
+\end{equation}
+
+\begin{equation}
+  r = \frac{n\sum_{i=1}^n x_i y_i -\left( \sum_{i=1}^n x_i \right) \left( \sum_{i=1}^n y_i \right)}{\sqrt{ \left( n\sum_{i=1}^n x^2_i - \left[ \sum_{i=1}^n
+  x_i\right]^2\right)\left( n\sum_{i=1}^n y^2_i - \left[ \sum_{i=1}^n
+  y_i\right ]^2 \right)}}
+  \label{eq:r-coef}
+\end{equation}
+
+\end{itemize}
+
+
+
+
