@@ -1,2 +1,2 @@
-# LaTeX preambles
- Collection of preambles used over the years
+# LaTeX preambles etc.
+ Collection of custom commands, preambles, etc. used over the years
